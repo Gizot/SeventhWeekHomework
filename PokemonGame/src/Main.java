@@ -1,4 +1,5 @@
 import model.*;
+import service.*;
 import model.Character;
 import service.CharacterService;
 import service.GameService;
@@ -9,13 +10,10 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
 
         CharacterService characterService = new CharacterService();
-
         LoadService loadService = new LoadService();
         PlayerService playerService = new PlayerService();
         GameService gameService = new GameService();
@@ -37,7 +35,6 @@ public class Main {
 ********************************************************************************************
  */
         characterService.characterChoice(characterList);
-        System.out.println("Karakterler listelendi!");
 
         characterList.get(0).getPokemonList().add(pokemonList.get(0));
         characterList.get(1).getPokemonList().add(pokemonList.get(1));
@@ -52,6 +49,8 @@ public class Main {
         gameService.attack(player1, player2, true, true);
 
         gameService.healthCheck(player2);
+
+        characterService.selectChar();
 
 
 
