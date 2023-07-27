@@ -38,8 +38,8 @@ public class Main {
 
         characterList.get(0).getPokemonList().add(pokemonList.get(0));
         characterList.get(1).getPokemonList().add(pokemonList.get(1));
-        characterList.get(1).getPokemonList().add(pokemonList.get(2));
-        characterList.get(1).getPokemonList().add(pokemonList.get(3));
+        characterList.get(2).getPokemonList().add(pokemonList.get(2));
+        characterList.get(3).getPokemonList().add(pokemonList.get(3));
 
         Player player1 = playerService.createPlayer("Jessie", characterList.get(0));
         Player player2 = playerService.createPlayer("James", characterList.get(1));

@@ -35,6 +35,7 @@ public class CharacterService {
                 loadService.loadCharacters().get(3);
 
         }
+        System.out.println("Karakter: " + "blablanlalasldjl");
 
 
         for (Character character : characterList) {

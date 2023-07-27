@@ -94,4 +94,21 @@ public class LoadService {
         return pokemonList;
     }
 
+    public Pokemon getWeakestPokemonForPlayer(ArrayList<Pokemon> pokemonList) {
+        if (pokemonList.isEmpty()) {
+            //Null if list is empty
+            return null;
+        }
+        // The first Pokemon is the weakest for now
+        Pokemon weakestPokemon = pokemonList.get(0);
+
+        for (Pokemon pokemon : pokemonList) {
+            if (pokemon.getHealth() < weakestPokemon.getHealth()) {
+                // Found a weaker Pokemon, update
+                weakestPokemon = pokemon;
+            }
+        }
+        return weakestPokemon;
+    }
+
 }
