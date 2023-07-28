@@ -47,18 +47,17 @@ public class LoadService {
     }
 
     public ArrayList<Character> loadCharacters() {
-
         // Karakterler için özel güçler oluştur
         SpecialPower strategy1 = new Strategy("StrategyI", 4, 1);
         SpecialPower strategy2 = new Strategy("Strategy II", 3, 1);
         SpecialPower strategy3 = new Strategy("Strategy III", 5, 1);
         SpecialPower strategy4 = new Strategy("Strategy IV", 2, 1);
 
-        // Karakterleri oluştur ve her bir karaktere özel güç atayarak listeye ekle
-        Character james = new Character("James", strategy3);
-        Character jessie = new Character("Jessie", strategy4);
-        Character ash = new Ash("Ash", strategy1);
-        Character brooke = new Brooke("Brooke", strategy2);
+        // Karakterleri oluştur ve her bir karaktere boş bir Pokemon listesi atayarak listeye ekle
+        Character james = new Character("James", strategy3, new ArrayList<>());
+        Character jessie = new Character("Jessie", strategy4, new ArrayList<>());
+        Character ash = new Ash("Ash", strategy1, new ArrayList<>());
+        Character brooke = new Brooke("Brooke", strategy2, new ArrayList<>());
 
         // Oluşturulan karakterleri içeren listeyi döndür
         ArrayList<Character> characterList = new ArrayList<>();
@@ -69,6 +68,13 @@ public class LoadService {
 
         return characterList;
     }
+    //Bu değişiklikle, karakterleri oluştururken her birine boş bir Pokemon listesi atanmış olacak ve NullPointerException hatası giderilmiş olacak. Artık oyuncular Pokemon seçimlerini yaparken bu listelere Pokemon'ları ekleyebilecekler.
+
+
+
+
+
+
 
     public ArrayList<Pokemon> loadPokemons() {
         // Pokemonlar için özel güçler oluştur
