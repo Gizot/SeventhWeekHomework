@@ -8,7 +8,7 @@ public class Jassie extends  Character{
         super(name, specialPower, pokemonList);
     }
 
-    public Jassie(int id, String name, SpecialPower specialPower) {
-        super(id, name, specialPower);
+    public Jassie(String name, SpecialPower specialPower) {
+        super(name, specialPower);
     }
 }

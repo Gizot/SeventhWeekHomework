@@ -42,30 +42,16 @@ public class LoadService {
 
     }
     public ArrayList<Character> loadCharacters(){
-        SpecialPower electricty = new Electricty(1,"Electricty", 3, 3);
-        SpecialPower water = new Water(2, "Water", 1, 3);
-        SpecialPower fire = new Fire(3, "Fire", 5, 3);
-        SpecialPower earth = new Earth(4,"Earth", 4, 3);
-        SpecialPower strategy1 = new Strategy(5,"Strategy I", 4, 1);
-        SpecialPower strategy2 = new Strategy(6,"Strategy II", 3, 1);
-        SpecialPower strategy3 = new Strategy(7,"Strategy III", 10, 1);
-        SpecialPower strategy4 = new Strategy(8,"Strategy IV", 9, 1);
 
-        Pokemon pokemon1 = new Pikachu(1,"Pikachu", 100, 10, TypeEnum.ELECTRICITY, electricty);
-        Pokemon pokemon2 = new Sqiurtle(2,"Sqiurtle", 15, 8, TypeEnum.WATER, water);
-        Pokemon pokemon3 = new Charmander(3,"Charmander", 90, 12, TypeEnum.FIRE, fire);
-        Pokemon pokemon4 = new Balbausar(4,"Balbausar", 140, 7, TypeEnum.EARTH, earth);
+        SpecialPower strategy1 = new Strategy("StrategyI", 4, 1);
+        SpecialPower strategy2 = new Strategy("Strategy II", 3, 1);
+        SpecialPower strategy3 = new Strategy("Strategy III",5, 1);
+        SpecialPower strategy4 = new Strategy("Strategy IV", 2, 1);
 
-        ArrayList<Pokemon> pokemonList = new ArrayList<>();
-        pokemonList.add(pokemon1);
-        pokemonList.add(pokemon2);
-        pokemonList.add(pokemon3);
-        pokemonList.add(pokemon4);
-
-        Character james = new Character(1,"James",strategy3,pokemonList);
-        Character jessie = new Character(2,"Jessie", strategy4,pokemonList);
-        Character ash = new Ash(3,"Ash", strategy1,pokemonList);
-        Character brooke = new Brooke(4,"Brooke", strategy2, pokemonList);
+        Character james = new Character("James",strategy3);
+        Character jessie = new Character("Jessie", strategy4);
+        Character ash = new Ash("Ash", strategy1);
+        Character brooke = new Brooke("Brooke", strategy2);
 
         ArrayList<Character> characterList = new ArrayList<>();
         characterList.add(ash);

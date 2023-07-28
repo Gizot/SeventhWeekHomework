@@ -9,8 +9,8 @@ public class Ash extends Character {
         super(name, specialPower, pokemonList);
     }
 
-    public Ash(int id, String name, SpecialPower specialPower) {
-        super(id, name, specialPower);
+    public Ash( String name, SpecialPower specialPower) {
+        super( name, specialPower);
     }
 }
 

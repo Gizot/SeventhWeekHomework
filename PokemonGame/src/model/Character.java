@@ -13,10 +13,9 @@ public class Character {
         this.pokemonList = pokemonList;
     }
 
-    public Character(int id, String name, SpecialPower specialPower){
+    public Character( String name, SpecialPower specialPower){
         this.name = name;
         this.specialPower = specialPower;
-        this.pokemonList = new ArrayList<>();
     }
 
     public String getName() {

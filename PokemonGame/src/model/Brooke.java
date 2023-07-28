@@ -8,7 +8,7 @@ public class Brooke extends Character{
         super(name, specialPower, pokemonList);
     }
 
-    public Brooke(int id, String name, SpecialPower specialPower) {
-        super(id, name, specialPower);
+    public Brooke(String name, SpecialPower specialPower) {
+        super(name, specialPower);
     }
 }

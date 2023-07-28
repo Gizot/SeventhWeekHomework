@@ -8,7 +8,7 @@ public class James extends Character{
         super(name, specialPower, pokemonList);
     }
 
-    public James(int id, String name, SpecialPower specialPower) {
-        super(id, name, specialPower);
+    public James(String name, SpecialPower specialPower) {
+        super(name, specialPower);
     }
 }
