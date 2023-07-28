@@ -6,6 +6,9 @@ import model.Pokemon;
 
 public class GameService {
 
+    private CharacterService characterService = new CharacterService();
+    private StageService stageService = new StageService();
+
     public void attack(Player attacker, Player defender, boolean isPokeSpecialAttack, boolean isCharSpecialAttack) {
         Pokemon attackingPokemon = attacker.getCharacter().getPokemonList().get(0);
         Pokemon defendingPokemon = defender.getCharacter().getPokemonList().get(0);
@@ -45,8 +48,8 @@ public class GameService {
         defendingPokemon.setHealth(defendingPokemon.getHealth() - damage);
     }
 
-    public boolean healthCheck(Player player){
-        if(player.getCharacter().getPokemonList().get(0).getHealth() > 0){
+    public boolean healthCheck(Player player) {
+        if (player.getCharacter().getPokemonList().get(0).getHealth() > 0) {
             System.out.println(player.toString());
             System.out.println("Oyun devam ediyor.");
             return true;

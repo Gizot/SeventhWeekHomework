@@ -11,50 +11,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
+
     public static void main(String[] args) {
-
-        CharacterService characterService = new CharacterService();
-        LoadService loadService = new LoadService();
-        PlayerService playerService = new PlayerService();
-        GameService gameService = new GameService();
-
-        // Load characters
-        ArrayList<model.Character> characterList = loadService.loadCharacters();
-        System.out.println("------Characters------");
-        for (Character character : characterList) {
-            System.out.println(character.toString());
-        }
-
-        // Load Pokemon
-        ArrayList<Pokemon> pokemonList = loadService.loadPokemons();
-        System.out.println("\n------Pokemon--------");
-        for (Pokemon pokemon : pokemonList) {
-            System.out.println(pokemon.toString());
-        }
-/*
-********************************************************************************************
- */
-        characterService.characterChoice(characterList);
-
-        characterList.get(0).getPokemonList().add(pokemonList.get(0));
-        characterList.get(1).getPokemonList().add(pokemonList.get(1));
-        characterList.get(2).getPokemonList().add(pokemonList.get(2));
-        characterList.get(3).getPokemonList().add(pokemonList.get(3));
-
-        Player player1 = playerService.createPlayer("Jessie", characterList.get(0));
-        Player player2 = playerService.createPlayer("James", characterList.get(1));
-        Player player3 = playerService.createPlayer("Ash", characterList.get(2));
-        Player player4 = playerService.createPlayer("Brooke", characterList.get(3));
-
-        gameService.attack(player1, player2, true, true);
-
-        gameService.healthCheck(player2);
-
-        characterService.selectChar();
-
-
-
-
-
+        Scanner scanner = new Scanner(System.in);
+        DirectingService game = new DirectingService();
+        game.start(scanner);
     }
 }

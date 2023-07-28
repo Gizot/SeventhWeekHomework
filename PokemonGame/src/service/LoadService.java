@@ -4,6 +4,7 @@ import model.*;
 import model.Character;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class LoadService {
 
@@ -110,5 +111,54 @@ public class LoadService {
         }
         return weakestPokemon;
     }
+
+    public Pokemon createLowestHealthPokemon() {
+        ArrayList<Pokemon> pokemonList = loadPokemons();
+
+        if (pokemonList.isEmpty()) {
+            return null;
+        }
+
+        Pokemon weakestPokemon = pokemonList.get(0);
+
+        for (Pokemon pokemon : pokemonList) {
+            if (pokemon.getHealth() < weakestPokemon.getHealth()) {
+                weakestPokemon = pokemon;
+            }
+        }
+
+        return new Pokemon(weakestPokemon.getId(), weakestPokemon.getName(), weakestPokemon.getHealth(),
+                weakestPokemon.getDamage(), weakestPokemon.getType(), weakestPokemon.getSpecialPower());
+    }
+
+    public Character selectChar() {
+        ArrayList<Character> characterList =loadCharacters();
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("--------------------------------");
+        System.out.println("Karakterinizi seçiniz");
+        for (Character character : characterList) {
+            System.out.println(character.getId() + "\t" + character.getName());
+        }
+
+        int selectChar = input.nextInt();
+        switch (selectChar) {
+            case 1:
+                return characterList.get(0);
+            case 2:
+                return characterList.get(1);
+            case 3:
+                return characterList.get(2);
+            case 4:
+                return characterList.get(3);
+            default:
+                System.out.println("Geçersiz karakter seçimi!");
+                return null;
+        }
+    }
+
+
+
+
 
 }

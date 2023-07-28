@@ -8,18 +8,21 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class CharacterService {
-    LoadService loadService = new LoadService();
-    Scanner input = new Scanner(System.in);
-    public void selectChar(){
+
+
+    private LoadService loadService = new LoadService();
+    private Scanner input = new Scanner(System.in);
+
+    public Character selectChar() {
         ArrayList<Character> characterList = new ArrayList<>();
         System.out.println("--------------------------------");
         System.out.println("Karakterinizi seçiniz");
-        for(Character character : characterList) {
+        for (Character character : characterList) {
 
             System.out.println(characterList.get(0).getId() + "\t" + characterList.get(0).getName() +
                     characterList.get(1).getId() + "\t" + characterList.get(1).getName() +
                     characterList.get(2).getId() + "\t" + characterList.get(2).getName() +
-                    characterList.get(3).getId() + "\t" + characterList.get(3).getName() );
+                    characterList.get(3).getId() + "\t" + characterList.get(3).getName());
         }
         int selectChar = input.nextInt();
         switch (selectChar) {
@@ -35,14 +38,16 @@ public class CharacterService {
                 loadService.loadCharacters().get(3);
 
         }
-        System.out.println("Karakter: " + "blablanlalasldjl");
+        System.out.println("Karakter: " + loadService.loadCharacters().get(selectChar));
 
 
         for (Character character : characterList) {
             System.out.println("Karakter: " + character.getName()
-            + "\t\t Özel güç: " + character.getSpecialPower().getName());
+                    + "\t\t Özel güç: " + character.getSpecialPower().getName());
         }
-    }
+
+
+
     public Character characterChoice(ArrayList<Character> characterList) {
 
         int characterChoice = 0;

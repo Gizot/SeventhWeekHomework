@@ -1,28 +1,19 @@
 package model;
 
 public class Pokemon {
-    private int id;
     private String name;
     private int health;
     private int damage;
     private TypeEnum type;
     private SpecialPower specialPower;
 
-    public Pokemon(int id,String name, int health, int damage, TypeEnum type, SpecialPower specialPower) {
-        this.id = id;
+    public Pokemon(String name, int health, int damage, TypeEnum type, SpecialPower specialPower) {
+
         this.name = name;
         this.health = health;
         this.damage = damage;
         this.type = type;
         this.specialPower = specialPower;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -78,7 +69,6 @@ public class Pokemon {
     @Override
     public String toString() {
         return "Pokemon{" +
-                "id=" + id +
                 ", name='" + name + '\'' +
                 ", health=" + health +
                 ", damage=" + damage +
