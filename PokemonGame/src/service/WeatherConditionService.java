@@ -6,8 +6,11 @@ import model.WeatherConditionsEnum;
 
 public class WeatherConditionService {
 
-    public WeatherConditionsEnum getWeather() {
+    public WeatherConditionsEnum getWeatherConditions() {
+        // Rastgele bir sayı üretmek için Math.random() kullanılır
         int random = (int) (Math.random() * 4);
+
+        // Random değere göre hava durumu enumunu döndür
         return switch (random) {
             case 1 -> WeatherConditionsEnum.HOT;
             case 2 -> WeatherConditionsEnum.WINDY;
@@ -15,46 +18,54 @@ public class WeatherConditionService {
             default -> WeatherConditionsEnum.RAINY;
         };
     }
+
     public void effectOfWeatherOnPower(Pokemon pokemon, WeatherConditionsEnum weatherEnum) {
+        // Pokemon'un tipine göre hava durumu etkisini belirle
         switch (pokemon.getType()) {
             case ELECTRICITY:
+                // Eğer hava durumu yıldırımlı ise hasarı 2 kat artır ve mesaj yazdır
                 if (weatherEnum == WeatherConditionsEnum.THUNDER) {
                     pokemon.setDamage(pokemon.getDamage() * 2);
                     System.out.println(pokemon.getName() + " yıldırımlı havada güç kazandı.");
-                } else if (weatherEnum == WeatherConditionsEnum.RAINY) {
+                }
+                // Eğer hava durumu yağmurlu ise hasarı yarıya indir ve mesaj yazdır
+                else if (weatherEnum == WeatherConditionsEnum.RAINY) {
                     pokemon.setDamage(pokemon.getDamage() / 2);
                     System.out.println(pokemon.getName() + " yağmurlu havada güç kaybetti.");
                 }
                 break;
             case WATER:
+                // Eğer hava durumu yağmurlu ise su tipi Pokemonların hasarını 3 kat artır ve mesaj yazdır
                 if (weatherEnum == WeatherConditionsEnum.RAINY) {
-                    //Water-type Pokemon strength increases in rainy weather
                     pokemon.setDamage(pokemon.getDamage() * 3);
                     System.out.println(pokemon.getName() + " yağmurlu havada güç kazandı.");
-                } else if (weatherEnum == WeatherConditionsEnum.HOT) {
-                    //Water-type Pokemon strength decreases in sunny weather
+                }
+                // Eğer hava durumu sıcak ise su tipi Pokemonların hasarını yarıya indir ve mesaj yazdır
+                else if (weatherEnum == WeatherConditionsEnum.HOT) {
                     pokemon.setDamage(pokemon.getDamage() / 2);
                     System.out.println(pokemon.getName() + " sıcak havada güç kaybetti.");
                 }
                 break;
             case FIRE:
+                // Eğer hava durumu sıcak ise ateş tipi Pokemonların hasarını 2 kat artır ve mesaj yazdır
                 if (weatherEnum == WeatherConditionsEnum.HOT) {
-                    //Fire-type Pokemon strength increases in hot weather
                     pokemon.setDamage(pokemon.getDamage() * 2);
                     System.out.println(pokemon.getName() + " sıcak havada güç kazandı.");
-                } else if (weatherEnum == WeatherConditionsEnum.RAINY) {
-                    //Fire-type Pokemon strength decreases in rainy weather
+                }
+                // Eğer hava durumu yağmurlu ise ateş tipi Pokemonların hasarını yarıya indir ve mesaj yazdır
+                else if (weatherEnum == WeatherConditionsEnum.RAINY) {
                     pokemon.setDamage(pokemon.getDamage() / 2);
                     System.out.println(pokemon.getName() + " yağmurlu havada güç kaybetti.");
                 }
                 break;
             case EARTH:
+                // Eğer hava durumu rüzgarlı ise toprak tipi Pokemonların hasarını 3 kat artır ve mesaj yazdır
                 if (weatherEnum == WeatherConditionsEnum.WINDY) {
-                    //Ground type Pokemon strength increases in windy weather
                     pokemon.setDamage(pokemon.getDamage() * 3);
                     System.out.println(pokemon.getName() + " rüzgarlı havada güç kazandı.");
-                } else if (weatherEnum == WeatherConditionsEnum.HOT) {
-                    //Earth type Pokemon strength decreases in hot weather
+                }
+                // Eğer hava durumu sıcak ise toprak tipi Pokemonların hasarını yarıya indir ve mesaj yazdır
+                else if (weatherEnum == WeatherConditionsEnum.HOT) {
                     pokemon.setDamage(pokemon.getDamage() / 2);
                     System.out.println(pokemon.getName() + " sıcak havada güç kaybetti.");
                 }
@@ -63,10 +74,13 @@ public class WeatherConditionService {
                 break;
         }
     }
+
     public void applyWeatherEffects(Player player1, Player player2) {
-        WeatherConditionsEnum weatherEnum = getWeather();
+        // Rastgele bir hava durumu belirle
+        WeatherConditionsEnum weatherEnum = getWeatherConditions();
         System.out.println("Weather is " + weatherEnum + "!\n");
 
+        // Her bir oyuncunun Pokemonları için hava durumu etkisini uygula
         for (Pokemon pokemon : player1.getCharacter().getPokemonList()) {
             effectOfWeatherOnPower(pokemon, weatherEnum);
         }

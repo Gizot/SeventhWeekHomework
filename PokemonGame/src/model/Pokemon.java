@@ -66,6 +66,10 @@ public class Pokemon {
         }
     }
 
+    public int getMaxHealth() {
+        return getMaxHealth();
+    }
+
     @Override
     public String toString() {
         return "Pokemon{" +
@@ -76,4 +80,6 @@ public class Pokemon {
                 ", specialPower=" + specialPower +
                 '}';
     }
+
+
 }
