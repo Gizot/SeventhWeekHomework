@@ -2,7 +2,6 @@ package service;
 
 import model.Player;
 import model.Pokemon;
-import model.StageEnum;
 
 public class StageService {
     public StageEnum getStage() {
