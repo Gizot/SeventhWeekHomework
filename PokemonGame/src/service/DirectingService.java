@@ -46,7 +46,7 @@ public class DirectingService {
         WeatherConditionService weatherConditionService = new WeatherConditionService();
 
         ArrayList<Character> characterList = loadService.loadCharacters();
-        System.out.println("------Characters------");
+        System.out.println("************Characters**********");
         //Karakterleri listeledik.
         for (int i = 0; i < characterList.size(); i++) {
             System.out.println((i + 1) + "- " + characterList.get(i).toString());
@@ -62,7 +62,7 @@ public class DirectingService {
 
         characterList.remove(player1CharacterIndex);
 
-        System.out.println("------Characters------");
+        System.out.println("************Characters*********");
         for (int i = 0; i < characterList.size(); i++) {
             System.out.println((i + 1) + " - " + characterList.get(i).toString());
         }
@@ -77,7 +77,7 @@ public class DirectingService {
 
         //Pokemonları listeledik
         ArrayList<Pokemon> pokemonList = loadService.loadPokemons();
-        System.out.println("\n------Pokemon--------");
+        System.out.println("\n**********Pokemon**********");
         for (int i = 0; i < pokemonList.size(); i++) {
             System.out.println((i + 1) + " - " + pokemonList.get(i).toString());
         }
@@ -110,10 +110,10 @@ public class DirectingService {
         while (true) {
             if (gameService.healthCheck(player1) && gameService.healthCheck(player2)) {
                 if (isPlayer1Turn) {
-                    System.out.println("\n" + player1.getName() + "'in sırası: ");
+                    System.out.println("\n" + player1.getName() + " sıra sende: ");
                     selectDisplayOptions(input, gameService, player1, player2);
                 } else {
-                    System.out.println("\n" + player2.getName() + "'in sırası: ");
+                    System.out.println("\n" + player2.getName() + " sıra sende: ");
                     selectDisplayOptions(input, gameService, player2, player1);
                 }
                 isPlayer1Turn = !isPlayer1Turn;
@@ -156,7 +156,7 @@ public class DirectingService {
 
                 //Exit the loop when the 2nd hand of the game is completed
                 if (roundCount == maxRounds + 1) {
-                    System.out.println("Oyun tamamlandı.");
+                    System.out.println("********* Oyun bitti *******");
                     break;
                 }
             }
